@@ -20,18 +20,6 @@ void erase_ship1(int x, int y) {
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 
 }
-/*void erase_ship2(int x, int y) {
-	printf("        ");
-	COORD c = { x,y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-
-}*/
-/*void erase_ship3(int x, int y) {
-	printf("      ");
-	COORD c = { x,++y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-}*/
-
 
 int main() {
 	char ch = ' ';
@@ -40,7 +28,7 @@ int main() {
 	do {
 		if (_kbhit()) {
 			ch = _getch();
-			if (x>=0 && x <= 80 && y >= 0) {
+			if (x >= 0 && x <= 80 && y >= 0) {
 				if (ch == 'a') {
 					erase_ship1(x, y);
 					draw_ship(x--, y);
@@ -49,27 +37,27 @@ int main() {
 				if (ch == 'd') {
 					erase_ship1(x, y);
 					draw_ship(x++, y);
-				
+
 					fflush(stdin);
 				}
 
 				if (ch == 'w') {
-                   erase_ship1(x, y);
+					erase_ship1(x, y);
 					draw_ship(x, y--);
 					fflush(stdin);
-					
+
 				}
 				if (ch == 's') {
-                   erase_ship1(x, y);
+					erase_ship1(x, y);
 					draw_ship(x, y++);
-					
+
 					fflush(stdin);
 				}
 				continue;
 			}
 		}
 
-		Sleep(100);
+		Sleep(500);
 	} while (ch != 'x');
 
 	return 0;
